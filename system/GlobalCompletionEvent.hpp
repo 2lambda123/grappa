@@ -379,7 +379,6 @@ public:
     } else {
       // conservative check, in case we're calling `wait` without calling `enroll`
       if (impl::call(master_core, [this]{ return cores_out; }) > 0) {
-//      if (impl::call(master_core, [this]{ return event_in_progress; })) {
         Grappa::wait(&cv);
         DVLOG(3) << "woke from conservative check";
       }
