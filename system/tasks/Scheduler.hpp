@@ -39,23 +39,24 @@ namespace Grappa {
 
 class Scheduler {
 private:
-    void dummy() {};
+  void dummy(){};
+
 public:
-    virtual Worker * get_current_thread() = 0;
-    virtual void assignTid( Worker * thr ) = 0;
+  virtual Worker *get_current_thread() = 0;
+  virtual void assignTid(Worker *thr) = 0;
 
-    virtual void ready( Worker * thr ) = 0;
-    virtual void periodic( Worker * thr ) = 0;
-    virtual void run( ) = 0;
+  virtual void ready(Worker *thr) = 0;
+  virtual void periodic(Worker *thr) = 0;
+  virtual void run() = 0;
 
-    virtual bool thread_yield( ) = 0;
-    virtual void thread_suspend( ) = 0;
-    virtual void thread_wake( Worker * next ) = 0;
-    //virtual void thread_yield_wake( Worker * next ) = 0;
-    //virtual void thread_suspend_wake( Worker * next ) = 0;
+  virtual bool thread_yield() = 0;
+  virtual void thread_suspend() = 0;
+  virtual void thread_wake(Worker *next) = 0;
+  // virtual void thread_yield_wake( Worker * next ) = 0;
+  // virtual void thread_suspend_wake( Worker * next ) = 0;
 
-    //virtual Worker * thread_wait( void **result ) = 0;
-    virtual void thread_on_exit( ) = 0;
+  // virtual Worker * thread_wait( void **result ) = 0;
+  virtual void thread_on_exit() = 0;
 };
 
-}
+} // namespace Grappa
